@@ -26,6 +26,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/servstyle.css" rel="stylesheet">
 
 </head>
 
@@ -77,21 +78,23 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/4.jpg');">
+
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/1.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>We Are Professional</h2>
-                <p> High Ethical Standards With Integrity And Excellence in Our Work. </p>
+                <h2>High Quality Consulting Services</h2>
+                <p> With Unmatched Expertise For Premium Consulting. </p>
                 <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item active" style="background-image: url('img/intro-carousel/1.jpg');">
+          <div class="carousel-item active" style="background-image: url('img/intro-carousel/4.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>High Quality Consulting Services</h2>
-                <p> With Unmatched Expertise For Premium Consulting. </p>
+                <h2><img src="img/hilversum/homelogo.png"><br></h2>
+                <h2>We Are Professional</h2>
+                <p> High Ethical Standards With Integrity And Excellence in Our Work. </p>
                 <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
               </div>
             </div>
@@ -249,32 +252,32 @@
 
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-            <h4 class="title"><a href="">Business Consulting</a></h4>
+            <h4 class="title"><a href="services.html">Business Consulting</a></h4>
             <p class="description">We provide business consulting services on strategy, planning, and problem-solving to help organizations improve performance and efficiency. We analyze businesses and create solutions to help our clients reach their organizational goals.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-            <h4 class="title"><a href="">Industrial Planning</a></h4>
+            <h4 class="title"><a href="services.html">Industrial Planning</a></h4>
             <p class="description">We facilitate the planning of future demands of standard business process optimization in a company or industry. We critically estimate the productive capacity, evaluate resource availability and allocation according to facilities needed to serve different customers.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-            <h4 class="title"><a href="">Policy Development</a></h4>
+            <h4 class="title"><a href="services.html">Policy Development</a></h4>
             <p class="description">At Hilversum, we have the expertise to gather information and consult appropriate stakeholders, identify goals to be achieved, what should be done, who and how to do it, draft policies, monitor, review and revise them according to the need identified.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-            <h4 class="title"><a href="">Civic Education</a></h4>
+            <h4 class="title"><a href="services.html">Civic Education</a></h4>
             <p class="description">We help ensure more people are taught about their rights and responsibilities and be more involved in public participation. They are sensitized on how to access and exercise these rights as part of a democratic society.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-            <h4 class="title"><a href="">Agribusiness</a></h4>
+            <h4 class="title"><a href="services.html">Agribusiness</a></h4>
             <p class="description">Hilversum trains farmers to employ different strategies of decision making in business agriculture from farm production, product delivery and all other business processes involved in agriculture and corporate farming.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-flower-outline"></i></div>
-            <h4 class="title"><a href="">Farm Management</a></h4>
+            <h4 class="title"><a href="services.html">Farm Management</a></h4>
             <p class="description">We provide Farm Management solutions and employ various strategies and methods of implementing decisions involved in organizing and operating a farm for maximum production and profit.</p>
           </div>
 
@@ -282,6 +285,7 @@
 
       </div>
     </section><!-- #services -->
+
 
     <!--==========================
       Call To Action Section
@@ -870,6 +874,14 @@
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
+  <div id="loader-wrapper">
+
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+  </div>
+
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
@@ -889,6 +901,17 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  <script>
+
+      $(window).load(function(){
+
+          // Remove preloader
+          // https://ihatetomatoes.net/create-custom-preloading-screen/
+          $('body').addClass('loaded');
+
+      });
+
+  </script>
 
 </body>
 </html>

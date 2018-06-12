@@ -1,0 +1,633 @@
+/* Preloader
+	https://ihatetomatoes.net/create-custom-preloading-screen/
+
+
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+   #loader-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; }
+   #loader { display: block; position: relative; left: 50%; top: 50%; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; border: 3px solid transparent; border-top-color: #3498db; /* Chrome, Opera 15+, Safari 5+ */
+-webkit-animation: spin 2s linear infinite;
+animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */ z-index: 2001; }
+#loader:before { content: ""; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px; border-radius: 50%; border: 3px solid transparent;
+    border-top-color: #e74c3c; /* Chrome, Opera 15+, Safari 5+ */
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */ }
+#loader:after { content: ""; position: absolute; top: 15px; left: 15px; right: 15px; bottom: 15px; border-radius: 50%; border: 3px solid transparent;
+    border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ -webkit-animation: spin 1.5s linear infinite; animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */ }
+@-webkit-keyframes spin {
+    0%   {  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+@keyframes spin {
+    0%   {  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+#loader-wrapper .loader-section { position: fixed; top: 0; width: 51%; height: 100%; background: #222222; z-index: 2000;  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */ -webkit-transform: translateX(0); -ms-transform: translateX(0); transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */}
+
+#loader-wrapper .loader-section.section-left { left: 0; }
+#loader-wrapper .loader-section.section-right {	right: 0; }
+
+/* Loaded */
+.loaded #loader-wrapper .loader-section.section-left {  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.3s 1s ease-out;
+    transition: all 0.3s 1s ease-out;
+}
+
+/* JavaScript Turned Off */
+.no-js #loader-wrapper { display: none; }
+/* End loader */
+
+/*--------------------------------------------------------------
+# introserv Section
+--------------------------------------------------------------*/
+
+#introserv {
+    display: table;
+    width: 100%;
+    height: 50vh;
+    background: #000;
+
+}
+
+#introserv .banner-item {
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#introserv .banner-item::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#introserv .banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#introserv .banner-content {
+    text-align: center;
+}
+
+
+#introserv h2 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 52px;
+    font-weight: 900;
+}
+
+@media (max-width: 768px) {
+    #introserv h2 {
+        font-size: 28px;
+    }
+}
+
+#introserv p {
+    width: 80%;
+    margin: 0 auto 30px auto;
+    color: #fff;
+}
+
+@media (min-width: 1024px) {
+    #introserv p {
+        width: 60%;
+    }
+}
+
+#introserv .banner-fade .banner-inner .banner-item {
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+
+#introserv .banner-fade .banner-inner .banner-item,
+#introserv .banner-fade .banner-inner .active.banner-item-left,
+#introserv .banner-fade .banner-inner .active.banner-item-right {
+    opacity: 0;
+}
+
+#introserv .banner-fade .banner-inner .active,
+#introserv .banner-fade .banner-inner .banner-item-next.banner-item-left,
+#introserv .banner-fade .banner-inner .banner-item-prev.banner-item-right {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+#introserv .banner-fade .banner-inner .banner-item-next,
+#introserv .banner-fade .banner-inner .banner-item-prev,
+#introserv .banner-fade .banner-inner .active.banner-item-left,
+#introserv .banner-fade .banner-inner .active.banner-item-right {
+    left: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+#introserv .banner-control-prev, #introserv .banner-control-next {
+    width: 10%;
+}
+
+@media (min-width: 1024px) {
+    #introserv .banner-control-prev, #introserv .banner-control-next {
+        width: 5%;
+    }
+}
+
+#introserv .banner-control-next-icon, #introserv .banner-control-prev-icon {
+    background: none;
+    font-size: 32px;
+    line-height: 1;
+}
+
+#introserv .banner-indicators li {
+    cursor: pointer;
+}
+
+#introserv .btn-get-started {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 32px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    color: #fff;
+    background: #18d26e;
+}
+
+#introserv .btn-get-started:hover {
+    background: #fff;
+    color: #18d26e;
+}
+
+/*introserv end */
+
+
+/*===============================================
+         carousel banner start
+  ===============================================*/
+
+.banner {
+    position: relative;
+}
+
+.banner-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-item {
+    position: relative;
+    display: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    transition: -webkit-transform 0.6s ease;
+    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, -webkit-transform 0.6s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+
+.banner-item.active,
+.banner-item-next,
+.banner-item-prev {
+    display: block;
+}
+
+.banner-item-next,
+.banner-item-prev {
+    position: absolute;
+    top: 0;
+}
+
+.banner-item-next.banner-item-left,
+.banner-item-prev.banner-item-right {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+    .banner-item-next.banner-item-left,
+    .banner-item-prev.banner-item-right {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.banner-item-next,
+.active.banner-item-right {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+    .banner-item-next,
+    .active.banner-item-right {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.banner-item-prev,
+.active.banner-item-left {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+    .banner-item-prev,
+    .active.banner-item-left {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.banner-control-prev,
+.banner-control-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.banner-control-prev:hover, .banner-control-prev:focus,
+.banner-control-next:hover,
+.banner-control-next:focus {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    opacity: .9;
+}
+
+.banner-control-prev {
+    left: 0;
+}
+
+.banner-control-next {
+    right: 0;
+}
+
+.banner-control-prev-icon,
+.banner-control-next-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.banner-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.banner-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.banner-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    z-index: 15;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.banner-indicators li {
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.banner-indicators li::before {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 10px;
+    content: "";
+}
+
+.banner-indicators li::after {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 10px;
+    content: "";
+}
+
+.banner-indicators .active {
+    background-color: #fff;
+}
+
+.banner-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+/*end/*
+
+/*===============================================
+       Service TABS start
+  ===============================================*/
+
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 30%;
+    height: auto;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: right;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: auto;
+}
+
+/*==============================================
+            My Custom Services Content style
+ ===============================================*/
+
+ #tab1:checked ~ #content1,
+ #tab2:checked ~ #content2,
+ #tab3:checked ~ #content3,
+ #tab4:checked ~ #content4,
+ #tab5:checked ~ #content5,
+ #tab6:checked ~ #content6 {
+    display: block;
+
+}
+
+ #content1 {
+    display: none;
+
+    border-top: 1px solid #ddd;
+}
+
+ #content2 {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+ #content3 {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+#content4 {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+#content5 {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+#content6 {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+input {
+    display: none;
+}
+
+label {
+    display: inline-flex;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: justify-all;
+    color: #bbb;
+    border: 1px solid transparent;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+label:before {
+    font-family: Ionicons;
+    font-weight: normal;
+    margin-right: 15px;
+    color: #18d26e;
+  font-size: 36px;
+  line-height: 1;
+  transition: 0.5s;
+}
+
+label[for*='1']:before{
+    content: "\f3cd";
+}
+
+label[for*='2']:before {
+    content: "\f4af";
+}
+
+label[for*='3']:before {
+    content: "\f471";
+}
+
+label[for*='4']:before {
+    content: "\f3e9";
+}
+
+label[for*='5']:before {
+    content: "\f3db";
+}
+
+label[for*='6']:before {
+    content: "\f432";
+}
+
+label:hover {
+    color: #888;
+    cursor: pointer;
+}
+
+input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #18d26e;
+    border-bottom: 1px solid #fff;
+}
+
+.container-tab {
+    width: 90%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: center;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid #18d26e;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .10);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .10);
+
+
+
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+/* Sections Header
+--------------------------------*/
+
+.section-header-tab p {
+    text-align: justify-all;
+
+    color: #333333;
+}
+
+/* end section header*/
